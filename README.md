@@ -25,15 +25,15 @@ Além disso, o pipeline foi desenhado para rodar **dois cenários distintos** a 
 
 ## Estrutura do Repositório
 
-* `data/raw/`: Base de dados original (arquivos CSV baixados do Kaggle).
-* `data/processed/`: Dados após a limpeza e normalização.
+* `data/`: Dados
+  * `     raw/`: Base de dados original (arquivos CSV baixados do Kaggle).
+  * `     results/`: Diretório de saída automatizada contendo as métricas (`tables/`) e os gráficos (`figures/`).
 * `notebooks/`: Análise Exploratória de Dados (EDA) inicial da equipe.
 * `src/`: Pipeline de Machine Learning modularizado:
   * `preprocessing.py`: Módulo de limpeza, encoding e StandardScaling.
   * `models/`: Implementação isolada de cada algoritmo com hiperparametrização.
   * `evaluation.py`: Módulo gerador de Matrizes de Confusão, ROC e F1-Score.
   * `statistical_tests.py`: Motor de testes de Wilcoxon e Friedman.
-* `results/`: Diretório de saída automatizada contendo as métricas (`tables/`) e os gráficos (`figures/`).
 * `main.py`: Orquestrador mestre para execução sequencial de todo o projeto.
 
 ## Como Executar o Projeto
