@@ -34,3 +34,6 @@ results/figures/*
 # Pastas de execução locais
 run/
 .run/
+
+# pra não subir os modelos 
+models/*.pkl
