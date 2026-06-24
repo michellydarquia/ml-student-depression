@@ -1,0 +1,36 @@
+# Ambientes Virtuais
+.venv/
+venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Lixos de Notebooks
+.ipynb_checkpoints/
+
+# Arquivos de Sistema Operacional (Windows/Mac)
+.DS_Store
+Thumbs.db
+
+# Ignorar bases de dados
+*.csv
+*.xlsx
+data/raw/*
+data/processed/*
+
+# MAS manter as pastas data/raw e data/processed existindo no Github
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Resultados e Logs locais
+results/tables/*
+results/figures/*
+!results/tables/.gitkeep
+!results/figures/.gitkeep
+
+# Pastas de execução locais
+run/
+.run/
