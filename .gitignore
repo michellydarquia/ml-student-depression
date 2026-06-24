@@ -36,4 +36,5 @@ run/
 .run/
 
 # pra não subir os modelos 
-models/*.pkl
+model_artifacts/bundle_sem_leak.pkl
+model_artifacts/bundle_com_leak.pkl
