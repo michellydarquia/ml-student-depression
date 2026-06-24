@@ -34,3 +34,7 @@ results/figures/*
 # Pastas de execução locais
 run/
 .run/
+
+# pra não subir os modelos 
+model_artifacts/bundle_sem_leak.pkl
+model_artifacts/bundle_com_leak.pkl
