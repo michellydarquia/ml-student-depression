@@ -67,6 +67,16 @@ O comando abaixo consumirá os dados em `data/raw/` e executará todas as etapas
 python main.py
 ```
 
+## Protótipo interativo com Streamlit
+
+Além do pipeline completo de modelagem, este projeto também possui um protótipo interativo desenvolvido com **Streamlit**.
+
+O protótipo permite carregar os modelos treinados em formato `.pkl`, preencher os dados de um estudante por meio de uma interface gráfica e visualizar a predição do modelo para a classe-alvo `Depression`.
+
+Para reproduzir a aplicação, gerar os arquivos necessários no notebook e executar o Streamlit localmente, consulte:
+
+[Como rodar o protótipo Streamlit](docs/como-rodar-streamlit.md)
+
 ## Equipe de Desenvolvimento
 
 <table align="center">
