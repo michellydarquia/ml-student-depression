@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
 
 
 file_path = './data/raw/Student Depression Dataset.csv'
@@ -48,7 +49,12 @@ def get_prepared_data(cenario='A'):
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=42)
 
-    
+    nomes_das_features = list(X.columns)
+
+    imputer = SimpleImputer(strategy='median')
+    X_train = imputer.fit_transform(X_train)
+    X_test = imputer.transform(X_test)
+
     ## Mudando ESCALAS USANDO SCALER
     scaler = StandardScaler()
 
@@ -57,6 +63,6 @@ def get_prepared_data(cenario='A'):
 
 
     print(df.head())
-    return  X_train, X_test, y_train, y_test 
+    return  X_train, X_test, y_train, y_test, nomes_das_features
     
-get_prepared_data('A')
+# get_prepared_data('A')
