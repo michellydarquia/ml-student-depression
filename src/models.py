@@ -32,7 +32,7 @@ def get_models():
             RandomForestClassifier(n_estimators=100, random_state=RANDOM_STATE, n_jobs=-1), scale=False),
         "Naive Bayes": build_pipeline(
             GaussianNB(), scale=False),
-        # "SVM": build_pipeline(
-        #     SVC(probability=True, random_state=RANDOM_STATE), scale=True),
+        "SVM": build_pipeline(
+            SVC(probability=True, random_state=RANDOM_STATE), scale=True),
     }
     return models
