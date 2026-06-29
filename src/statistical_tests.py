@@ -1,5 +1,3 @@
-# statistical_tests.py
-
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
@@ -9,16 +7,15 @@ def run_statistical_tests(cv_raw, metric_for_test="test_f1"):
     Testes de Friedman e Wilcoxon para comparar os modelos
     usando os resultados (cv_raw) da validação cruzada.
     """
-    print(f"Métrica: {metric_for_test})")
+    print(f"Métrica: {metric_for_test}")
 
     model_names = list(cv_raw.keys())
 
-    # matriz (n_modelos x n_dobras)
     fold_matrix = np.array([cv_raw[name][metric_for_test] for name in model_names])
 
     # Teste de Friedman
     friedman_stat, friedman_p = stats.friedmanchisquare(*fold_matrix)
-    print(f"Teste de Friedman (10 dobras):")
+    print(f"Teste de Friedman:")
     print(f"  estatística = {friedman_stat:.4f}")
     print(f"  p-valor     = {friedman_p:.4g}")
 

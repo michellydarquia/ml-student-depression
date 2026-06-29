@@ -1,12 +1,10 @@
-# visualizations.py
-
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import ConfusionMatrixDisplay, RocCurveDisplay, classification_report
+from sklearn.metrics import ConfusionMatrixDisplay, RocCurveDisplay
 
-OUTPUT_DIR = "resultados"
+OUTPUT_DIR = "results"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def plot_confusion_matrices(trained_models, X_test, y_test):
@@ -25,7 +23,6 @@ def plot_confusion_matrices(trained_models, X_test, y_test):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "matrizes_de_confusao.png"), dpi=300)
-    plt.show()
 
 def plot_roc_curves(trained_models, X_test, y_test):
     """Gera o gráfico comparativo das Curvas ROC."""
@@ -38,15 +35,6 @@ def plot_roc_curves(trained_models, X_test, y_test):
     ax.set_title("Curvas ROC - Comparação entre os algoritmos")
     ax.legend(loc="lower right", fontsize=9)
     plt.savefig(os.path.join(OUTPUT_DIR, "curvas_roc.png"), dpi=300)
-    plt.show()
-
-def report_best_model(best_model, model_name, X_test, y_test):
-    print(f"\n--- Relatório do Melhor Modelo: {model_name} ---")
-    y_pred = best_model.predict(X_test)
-    print(classification_report(
-        y_test, y_pred,
-        target_names=["Sem depressão", "Com depressão"]
-    ))
 
 def plot_logistic_regression_coefs(logreg_model, feature_names):
     """Plota os coeficientes da Regressão Logística para interpretabilidade."""
@@ -63,7 +51,6 @@ def plot_logistic_regression_coefs(logreg_model, feature_names):
     plt.xlabel("Coeficiente (dados padronizados)")
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "coeficientes_regressao_logistica.png"), dpi=300)
-    plt.show()
 
 def plot_feature_importance(rf_model, feature_names, output_filename="feature_importance.png"):
     """Extrai e plota a importância das variáveis do modelo Random Forest."""
@@ -79,7 +66,6 @@ def plot_feature_importance(rf_model, feature_names, output_filename="feature_im
     plt.xlabel("Importância (Gini)")
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, output_filename), dpi=300)
-    plt.show()
     print(f"\nGráfico salvo como '{output_filename}'")
 
 def plot_cv_boxplot(cv_raw):
@@ -93,4 +79,4 @@ def plot_cv_boxplot(cv_raw):
     plt.xlabel("F1-score")
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, "boxplot_f1_cv.png"), dpi=300)
-    plt.show()
+    
